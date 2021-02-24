@@ -4,12 +4,13 @@ const fs = require('fs');
 module.exports = (app) => {
     app.get('/api/notes', (req, res) => res.json(db));
 
-    app.get('/api/notes/:noteId', (req,res) => {
+    app.delete('/api/notes/:noteId', (req,res) => {
         const chosen = req.params.noteId;
         console.log(chosen);
         for (let i = 0; i < db.length; i++) {
             if (chosen == db[i].id){
-                return res.json(db[i])
+                db.splice(i, 1);
+                return res.send();
             } 
             
         }
@@ -21,8 +22,8 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
         db.push(req.body);
         res.json(true);
-        console.log(__dirname + '../');
-        console.log(db);
+        
+        
         
         db.forEach((item, i) => {
             item.id = i + 1;
