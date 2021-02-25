@@ -1,6 +1,6 @@
 const db = require('../db/db.json');
 const fs = require('fs');
-
+const uuid = require('uuid');
 module.exports = (app) => {
     app.get('/api/notes', (req, res) => res.json(db));
 
@@ -12,7 +12,6 @@ module.exports = (app) => {
                 db.splice(i, 1);
                 return res.send();
             } 
-            
         }
         // return res.json(false);
 
@@ -20,14 +19,15 @@ module.exports = (app) => {
 
 
     app.post('/api/notes', (req, res) => {
-        db.push(req.body);
+        const newEntry = req.body;
+        newEntry.id = uuid.v4();
+        db.push(newEntry);
         res.json(true);
         
         
-        
-        db.forEach((item, i) => {
-            item.id = i + 1;
-        });
+        // db.forEach((item, i) => {
+        //     item.id = i + 1;
+        // });
         console.log(db);
         fs.writeFile('../Note_Taker/db/db.json', JSON.stringify(db), (err) => 
         err ? console.log(err) : console.log('written data to db.json'));
