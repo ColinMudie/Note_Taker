@@ -28,14 +28,14 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 - Visit the link [Note Taker](https://damp-ridge-49255.herokuapp.com/)
 - Click "Get Started" to be brought to the notes.html  
 
- ![NoteTaker1](Assets\NoteTaker1.png)
+ ![NoteTaker1](./Assets\NoteTaker1.png)
 - On the Notes.html,
     - Typing in a Note Title, and a Note Text will then display a save icon for the user to press to save their note.
     - You can retrieve old notes by clicking on the name in the left column. in this example clicking "Preview Title Goes Here"
     - You can delete indivual notes by clicking the red trash can.
     - Finally when viewing an old note, if you with to create a new one press the edit icon in the top right of the screen to view a blank form.  
 
-![NoteTaker3](Assets\NoteTaker3.png)
+![NoteTaker3](./Assets\NoteTaker3.png)
 
 
 ## Features
